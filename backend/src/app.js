@@ -40,6 +40,11 @@ app.use(express.static('public'));
 import { userRouter } from "./routes/user.routes.js";
 app.use("/api/users", userRouter)
 
+import { transactionRouter } from "./routes/transaction.routes.js";
+app.use("/api/transactions", transactionRouter)
+
+
+
 
 
 

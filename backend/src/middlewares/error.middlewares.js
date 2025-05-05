@@ -3,7 +3,7 @@ import { apiError } from "../utils/apiError.js";
 
 
 
-const errorHandler = (err, res) => {
+const errorHandler = (err, req, res, next) => {
     let error = err;
 
     if (!(error instanceof apiError)) {
@@ -19,7 +19,8 @@ const errorHandler = (err, res) => {
     };
 
     return res.status(error.statusCode || 500).json(response);
-}
+};
+
 
 
 export {errorHandler}

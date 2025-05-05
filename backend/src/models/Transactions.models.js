@@ -9,10 +9,6 @@ const transactionsSchema = new Schema ({
         type: String,
         required: true,
     },
-    Date: {
-        type: Date,
-        default: Date.now,
-    },
     note : {
         type: String,
         required: true,
@@ -22,7 +18,11 @@ const transactionsSchema = new Schema ({
         ref: "User",
         required: true,
     },
+},
+    {
+        timestamps: true
 
-});
+    }
+);
 
 export const Transactions = mongoose.model("Transactions", transactionsSchema);
