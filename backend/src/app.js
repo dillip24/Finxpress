@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from "cookie-parser";
 
 import { errorHandler } from "./middlewares/error.middlewares.js";
 
@@ -32,6 +33,8 @@ app.use(express.urlencoded(
 app.use(express.static('public'));
 
 
+app.use(cookieParser());
+
 // app.use("/", (req, res) => {
 //     res.send("Welcome to the API")
 // })
@@ -42,6 +45,21 @@ app.use("/api/users", userRouter)
 
 import { transactionRouter } from "./routes/transaction.routes.js";
 app.use("/api/transactions", transactionRouter)
+
+
+import { categoryRouter } from "./routes/category.routes.js";
+app.use("/api/categories", categoryRouter)
+
+
+import { budgetRouter } from "./routes/budget.routes.js";
+app.use("/api/budgets", budgetRouter)
+
+import { goalsRouter } from './routes/goal.routes.js';
+app.use("/api/goals", goalsRouter)
+
+
+import { dashboardRouter } from './routes/dashboard.routes.js';
+app.use("/api/dashboard", dashboardRouter)
 
 
 
